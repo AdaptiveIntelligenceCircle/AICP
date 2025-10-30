@@ -1,0 +1,15 @@
+{
+  "type":"object",
+  "properties":{
+    "envelope_version":{"type":"string"},
+    "protocol_id":{"type":"string"},
+    "sender_id":{"type":"string"},
+    "sequence":{"type":"integer"},
+    "payload_type":{"type":"string"},
+    "payload_enc":{"type":"string","contentEncoding":"base64"},
+    "signatures":{"type":"array","items":{"type":"string","contentEncoding":"base64"}},
+    "trust":{"type":"object","properties":{"trust_score":{"type":"number"}}},
+    "timestamp_ms":{"type":"integer"}
+  },
+  "required":["envelope_version","protocol_id","sender_id","sequence","payload_enc"]
+}
