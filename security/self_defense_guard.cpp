@@ -62,7 +62,7 @@ namespace aicp :: security
                 source, desc, level, Clock :: now()
             };
             event_log.push_back(ev); 
-            // handle_event(ev); 
+            handle_event(ev); 
         }
 
         void expert_log(const string &path)
