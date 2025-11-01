@@ -68,7 +68,7 @@ namespace aicp :: security
 
         // user lifecycle .. 
         bool register_user(const string &username, const string &password, const vector<string> &roles = {}); 
-
+        bool delete_user(const string &username); 
         // authentication -> returns session token if ok.. 
         optional<string> authenticate(const string &username, const string &password,
         chrono:: seconds session_ttl = chrono :: hours(1) );
@@ -83,7 +83,7 @@ namespace aicp :: security
         bool add_role_to_user(const string &username, const string &role); 
         bool remove_rule_from_user(const string &username, const string &role); 
         bool check_permission(const string &username, const string &permission);
-        
+        bool remove_role_from_user(const string &username, const string &role); 
         // set / update role policy .. 
         void set_rule_policy(const RolePolicy &policy); 
 
