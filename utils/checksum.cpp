@@ -31,9 +31,10 @@ namespace aicp :: utils
         hash<string>h; 
         
         oss << hex << h(data); 
-        return oss.str(); 
+        return oss.str();
+#endif  
     }
-#endif 
+
     // Compute CRC32 (simplified, software implementation..)
     uint32_t crc32(const vector<uint8_t> &data)
     {
@@ -65,7 +66,7 @@ namespace aicp :: utils
             crc_hex = oss.str(); 
         }
 
-        string sha = sha256(string(data.begin()), data.end(), hash);
+        string sha = sha256(string(data.begin(), data.end()));
         return sha + "-" + crc_hex;
     }
 }
