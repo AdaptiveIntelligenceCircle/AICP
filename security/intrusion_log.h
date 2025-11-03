@@ -41,7 +41,7 @@ namespace aicp :: security
 
         // append new record to memory and file .. 
         void record(const IntrusionRecord &rec); 
-
+        void flush();
         // convenience overload.. /// 
         void record(const string &src, const string &desc, 
         IntrusionSeverity sev, const optional<string> &session_id = nullopt );
@@ -65,5 +65,5 @@ namespace aicp :: security
     
     // Factory function.. // 
     unique_ptr<IntrusionLog> make_intrusion_log(const string &path = "intrusion.log");
-     
+
 }
