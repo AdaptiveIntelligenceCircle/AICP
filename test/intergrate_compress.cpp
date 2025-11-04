@@ -14,8 +14,8 @@ int main()
     cout << "Restored: " << restored << "\n";
 
     if (verify_compression(std::vector<uint8_t>(text.begin(), text.end())))
-        cout << "✅ Compression verified successfully.\n";
+        cout << "Compression verified successfully.\n";
     else
-        cout << "❌ Compression mismatch.\n";
+        cout << "Compression mismatch.\n";
     return 0; 
 }
