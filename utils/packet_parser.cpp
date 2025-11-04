@@ -75,7 +75,7 @@ namespace aicp :: core
             }
             catch (const exception &e)
             {
-                log_event("core/packet_parser", std::string("JSON parsing error: ") + e.what(), IntrusionSeverity::Alert);
+                log_event("core/packet_parser", string("JSON parsing error: ") + e.what(), IntrusionSeverity::Alert);
                 return nullopt;
             }
         }
