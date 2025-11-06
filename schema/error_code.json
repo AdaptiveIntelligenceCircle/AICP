@@ -1,0 +1,70 @@
+{
+  "AICP_ERROR_CODES": {
+    "1000": {
+      "type": "INFO",
+      "message": "Operation completed successfully.",
+      "category": "General"
+    },
+    "2001": {
+      "type": "WARNING",
+      "message": "Packet truncated or incomplete.",
+      "category": "PacketParser"
+    },
+    "2002": {
+      "type": "ALERT",
+      "message": "Invalid magic header detected.",
+      "category": "PacketParser"
+    },
+    "2003": {
+      "type": "CRITICAL",
+      "message": "Checksum mismatch – data corruption or tampering suspected.",
+      "category": "Integrity"
+    },
+    "3000": {
+      "type": "ERROR",
+      "message": "Unauthorized access attempt detected.",
+      "category": "Security"
+    },
+    "3001": {
+      "type": "ALERT",
+      "message": "Certificate expired or invalid signature.",
+      "category": "Security"
+    },
+    "4000": {
+      "type": "CRITICAL",
+      "message": "Transport connection lost unexpectedly.",
+      "category": "Transport"
+    },
+    "4001": {
+      "type": "ERROR",
+      "message": "Handshake negotiation failed.",
+      "category": "Handshake"
+    },
+    "5000": {
+      "type": "ALERT",
+      "message": "Intrusion detected — self-defense mode activated.",
+      "category": "Protection"
+    },
+    "6000": {
+      "type": "ERROR",
+      "message": "Serialization or deserialization failed.",
+      "category": "Serializer"
+    },
+    "7000": {
+      "type": "ERROR",
+      "message": "Adaptive learning module unavailable.",
+      "category": "MetaLearning"
+    },
+    "9000": {
+      "type": "CRITICAL",
+      "message": "System kernel panic — recovery sequence initiated.",
+      "category": "Core"
+    }
+  },
+  "default_behavior": {
+    "log": true,
+    "emit_alert": true,
+    "rollback": "safe_state",
+    "report_to_broker": true
+  }
+}

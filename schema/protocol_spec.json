@@ -1,0 +1,79 @@
+{
+  "protocols": {
+    "auth.handshake": {
+      "description": "Secure key exchange and mutual authentication phase.",
+      "phase": ["INIT", "ACK", "VERIFY", "ESTABLISHED"],
+      "fields": {
+        "client_nonce": "32-byte random",
+        "server_nonce": "32-byte random",
+        "public_key": "ECDH-P521",
+        "signature": "ECDSA-P521",
+        "timestamp": "uint64_t (UTC epoch)"
+      },
+      "encryption": "AES-256-GCM",
+      "compression": "zlib",
+      "timeout_ms": 5000
+    },
+    "core.sync": {
+      "description": "Synchronize internal states between adaptive nodes.",
+      "fields": {
+        "session_id": "string",
+        "state_hash": "SHA256",
+        "update_delta": "binary",
+        "timestamp": "uint64_t"
+      },
+      "resync_policy": "auto if delta>10%",
+      "priority": "medium"
+    },
+    "protection.alert": {
+      "description": "Forward intrusion or anomaly alert to master node.",
+      "fields": {
+        "source": "string",
+        "alert_code": "uint16_t",
+        "severity": "string",
+        "details": "string",
+        "timestamp": "uint64_t"
+      },
+      "forward_to": "security.center",
+      "rate_limit": "3 per second"
+    },
+    "sensor.data": {
+      "description": "Raw or preprocessed sensor readings.",
+      "fields": {
+        "sensor_id": "string",
+        "type": "string",
+        "value": "float",
+        "timestamp": "uint64_t"
+      },
+      "compression": "adaptive (auto)",
+      "priority": "low"
+    },
+    "adaptive.feedback": {
+      "description": "Meta-learning feedback and reinforcement signals.",
+      "fields": {
+        "node_id": "string",
+        "reward": "float",
+        "context": "json",
+        "timestamp": "uint64_t"
+      },
+      "priority": "high",
+      "reliability": "guaranteed"
+    }
+  },
+  "transport_layer": {
+    "default": "tcp",
+    "alternatives": ["grpc", "p2p"],
+    "heartbeat_interval_ms": 10000
+  },
+  "security_policy": {
+    "signature_required": true,
+    "certificate_validation": "strict",
+    "replay_protection": true,
+    "max_skew_ms": 15000
+  },
+  "self_defense_hooks": {
+    "on_intrusion": "protection.alert",
+    "on_invalid_packet": "core.recover",
+    "on_key_expiry": "auth.handshake.rekey"
+  }
+}

@@ -1,1 +1,44 @@
+{
+  "system": "AICP - Adaptive Intelligence Communication Protocol",
+  "version": "1.0.0",
+  "last_update": "2025-11-02T00:00:00Z",
+  "authors": ["Nguyen Duc Tri"],
+  "license": "Apache-2.0",
+  "architecture": {
+    "core": "Responsible for adaptive kernel logic, packet routing, and message normalization.",
+    "modules": [
+      "security/",
+      "communication/",
+      "preprocessing/",
+      "protection/",
+      "language/",
+      "runtime/"
+    ],
+    "interoperability": {
+      "supported_languages": ["C++23", "Lua 5.4.6", "Rust 1.80+"],
+      "transport_types": ["tcp", "grpc", "p2p"]
+    }
+  },
+  "adaptive_features": {
+    "meta_learning": true,
+    "context_awareness": true,
+    "bayesian_optimization": true,
+    "human_in_the_loop": true,
+    "trust_based_defense": true
+  },
+  "metadata_tags": {
+    "integrity_level": "High",
+    "resilience_mode": "Self-healing",
+    "execution_model": "Event-driven adaptive"
+  },
+  "checksum": {
+    "algorithm": "SHA256+CRC32 hybrid",
+    "validation_policy": "verify before deserialize"
+  },
+  "encryption": {
+    "default_cipher": "AES-256-GCM",
+    "key_exchange": "ECDH-P521",
+    "certificate_format": "AICP-CERTv1"
+  }
+}
 
