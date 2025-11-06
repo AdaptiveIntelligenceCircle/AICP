@@ -1,0 +1,63 @@
+system:
+  name: "AICP - Adaptive Intelligence Communication Protocol"
+  version: "1.0.0"
+  build_id: "2025.11.02-rc1"
+  maintainer: "Nguyen Duc Tri"
+  license: "Apache-2.0"
+  architecture: "x86_64-linux-gcc14"
+  checksum_algorithm: "SHA256"
+  timestamp: "2025-11-02T12:00:00Z"
+
+modules:
+  core:
+    version: "1.0.0"
+    commit_hash: "3f5e4d1b2a9c7e"
+    checksum: "a8ff62a28fbe2302c35ef92cd3b..."
+    dependencies: ["utils >= 1.0.0", "security >= 1.0.0"]
+  utils:
+    version: "1.0.1"
+    checksum: "7c9e16c2328a119..."
+  security:
+    version: "1.1.0"
+    checksum: "3d7b9f6d4a..."
+  transport:
+    version: "1.0.0"
+    checksum: "e38c28ff1b..."
+  language:
+    version: "0.9.3"
+    implemented_in: ["Lua", "C++"]
+  runtime:
+    version: "1.0.0"
+    compatibility: ">= core 1.0.0"
+
+integrations:
+  rust_plugin:
+    version: "0.3.4"
+    path: "plugins/rust/"
+  lua_extensions:
+    version: "0.5.1"
+    path: "modules/lua/"
+
+compatibility_matrix:
+  core: ["utils", "security", "transport"]
+  security: ["self_defense_guard", "cert_manager"]
+  transport: ["packet_parser", "compress"]
+
+update_policy:
+  auto_update: false
+  rollback_on_failure: true
+  max_snapshot_keep: 5
+
+integrity_validation:
+  enabled: true
+  verify_on_boot: true
+  boot_hash: "73b3c194fe9a1e..."
+  trusted_source: "git@aicp.repo/adaptive.git"
+
+history:
+  - version: "0.9.9"
+    date: "2025-10-15"
+    note: "First stable pre-release with handshake and message broker integration."
+  - version: "1.0.0"
+    date: "2025-11-02"
+    note: "Introduced full adaptive metadata and self-defense integration."
