@@ -4,7 +4,7 @@ system:
   build_id: "2025.11.02-rc1"
   maintainer: "Nguyen Duc Tri"
   license: "Apache-2.0"
-  architecture: "x86_64-linux-gcc14"
+  architecture: "x86_64-win32-gcc14"
   checksum_algorithm: "SHA256"
   timestamp: "2025-11-02T12:00:00Z"
 
