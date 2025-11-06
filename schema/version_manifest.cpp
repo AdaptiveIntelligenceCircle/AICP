@@ -62,7 +62,7 @@ namespace aicp :: core
                 cout << "  → " << left << setw(16) << mod.name
                           << " v" << mod.version
                           << "  hash: " << actual_hash.substr(0, 12)
-                          << (match ? " ✅ OK" : " ❌ MISMATCH") << "\n";
+                          << (match ? " OK" : "  MISMATCH") << "\n";
 
                 if (!match)
                 {
@@ -75,11 +75,11 @@ namespace aicp :: core
 
             if (all_ok)
             {
-                cout << "\n✅ All modules verified successfully.\n";
+                cout << "\nAll modules verified successfully.\n";
             }
             else
             {
-                cout << "\n⚠️  Integrity issues detected. Review intrusion log.\n";
+                cout << "\n Integrity issues detected. Review intrusion log.\n";
             }
             return all_ok;
         }
@@ -110,7 +110,7 @@ namespace aicp :: core
             cout << "Module: " << it->name << " (" << it->version << ")\n";
             cout << "Expected: " << it->checksum.substr(0, 12)
                       << " | Actual: " << actual.substr(0, 12)
-                      << (ok ? " ✅ Match\n" : " ❌ Mismatch\n");
+                      << (ok ? " Match\n" : " Mismatch\n");
 
             if (!ok)
                 report_event("manifest_verifier",
@@ -126,22 +126,22 @@ namespace aicp :: core
         vector<ModuleInfo> load_manifest()
         {
             YAML::Node manifest = YAML::LoadFile(manifest_path);
-            std::vector<ModuleInfo> mods;
+            vector<ModuleInfo> mods;
 
             if (!manifest["modules"])
-                throw std::runtime_error("Invalid manifest format: no modules field");
+                throw runtime_error("Invalid manifest format: no modules field");
 
             for (auto it : manifest["modules"])
             {
                 ModuleInfo m;
-                m.name = it.first.as<std::string>();
-                m.version = it.second["version"].as<std::string>();
-                m.checksum = it.second["checksum"].as<std::string>();
+                m.name = it.first.as<string>();
+                m.version = it.second["version"].as<string>();
+                m.checksum = it.second["checksum"].as<string>();
 
                 if (it.second["dependencies"])
                 {
                     for (auto dep : it.second["dependencies"])
-                        m.dependencies.push_back(dep.as<std::string>());
+                        m.dependencies.push_back(dep.as<string>());
                 }
                 mods.push_back(std::move(m));
             }
