@@ -2,7 +2,7 @@
 Main protocol for AIC
 
 <p align="center">
-  <img src="assets/AIC-Protocol.png" alt="AIC Logo" width="1024" length = "1024"/>
+  <img src="assets/AIC-Protocol.png" width="1024" length = "1024"/>
 </p>
 
 **AICP** is the central orchestration protocol of the **Adaptive Intelligence Circle (AIC)** ecosystem—a decentralized knowledge system aimed at reshaping how humans connect, learn, and operate systems.
