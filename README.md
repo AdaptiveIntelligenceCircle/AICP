@@ -6,7 +6,7 @@ Main protocol for AIC
 </p>
 
 <p align="center">
-  <strong> Human Meaning Network </strong><br>
+  <strong> Adaptive Intelligence Circle Protocol </strong><br>
   Decentralized nodes • Ethical scaling • Planetary readiness
 </p>
 
