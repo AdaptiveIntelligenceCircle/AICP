@@ -10,6 +10,11 @@ Main protocol for AIC
   Decentralized nodes • Ethical scaling • Planetary readiness
 </p>
 
+> AIC/HMN is licensed under GPL-3.0. Any fork or derivative work must keep the same license and respect the core principles: zero-donation, third path independence, and ethical-from-kernel. The project is currently maintained by the founder. During the founder’s mandatory military service (expected 2027–2029), the project will enter maintenance mode. All code remains public and transparent.”
+
+---
+## I. Definition. 
+
 **AICP** is the central orchestration protocol of the **Adaptive Intelligence Circle (AIC)** ecosystem—a decentralized knowledge system aimed at reshaping how humans connect, learn, and operate systems.
 
 It's not a framework. It's a **protocol**—a layer of logic for agents, operating systems, and humans to interact in depth.
